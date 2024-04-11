@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Your page content goes here -->
+
+<div style="height: 100vh; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
+    <div class="row align-items-center">
+        <div class="col-6 container p-5">
+            <h1 class="display-3" style="color: white;">Robotic trading service provider</h1> <br>
+            <!-- <p class="fs-1" style="color: white;">I am Stephen, Founder of QuatFX.</p> -->
+            <p class="h3" style="color: white;">Riche Profit opens a new era where trading is not just a secondary income but a sustained as well managed master income to each and everyone without any financial barriers. We have been providing forex trading services for over a year now and are proud to have achieved a high success rate. Our robotic software has a proven track record of making profitable trades and helping our clients maximize their returns. We use a variety of different technical and fundamental analysis techniques to make sure that we are always making the best possible trades.</p>
+        </div>
+        <div class="col-6">
+            <span class="faded faded-left"><img src="{% static 'img/vector23.jpg' %}" style="height: 100vh;"/></span>
+        </div>
+    </div>
+</div>
+<div style="height: 100vh; background-color: rgb(255, 255, 255);">
+    <div class="row align-items-center" style="height: 100vh;">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <!-- Content for the left column goes here -->
+            <span class="faded faded-right"><img src="{% static 'img/vector24.jpg' %}" style="height: 100vh; max-width: 100%;"/></span>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center align-items-center p-5"  style="height: 100vh; background-color: white;">
+            <!-- Content for the right column goes here -->
+            <div class="justify-content-center align-items-center p-5" style="height: 100vh; background-color: white;">
+                <h1 class="display-3" style="color: rgb(0, 0, 0);">Robotic trading service provider
+
+                </h1> <br>
+                <!-- <p class="fs-1" style="color: rgb(0, 0, 0);">Riche Profit is committed to providing its clients with the best possible trading conditions using innovative technology and unbeatable expertise.</p> -->
+                <p class="h3" style="color: rgb(0, 0, 0);">Riche Profit opens a new era where trading is not just a secondary income but a sustained as well managed master income to each and everyone without any financial barriers. We have been providing forex trading services for over a year now and are proud to have achieved a high success rate. Our robotic software has a proven track record of making profitable trades and helping our clients maximize their returns. We use a variety of different technical and fundamental analysis techniques to make sure that we are always making the best possible trades.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .faded-left::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Adjust the width of the fade */
+        height: 100%;
+        background: linear-gradient(to right, rgba(0, 0, 0), transparent); /* Adjust the gradient direction and opacity */
+    }
+    .faded-right::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%; /* Adjust the width of the fade */
+        height: 100%;
+        background: linear-gradient(to left, rgba(255, 255, 255), transparent); /* Adjust the gradient direction and opacity */
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,25 @@
+{
+
+    "builds": [{
+
+        "src": "Full_Stack_Course/wsgi.py",
+
+        "use": "@vercel/python",
+
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.7" }
+
+    }],
+
+    "routes": [
+
+        {
+
+            "src": "/(.*)",
+
+            "dest": "Full_Stack_Course/wsgi.py"
+
+        }
+
+    ]
+
+}

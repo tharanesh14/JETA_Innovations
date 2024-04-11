@@ -1,0 +1,369 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Your page content goes here -->
+<div class="container p-4">
+    <br>
+    <h1 class="fs-1" style="font-weight: bolder;"><span style="color: red;">POWER BOT</span> Forex Trading Account
+        Daily, Weekly, Monthly Performance History</h1>
+    <hr>
+    <div class="fs-3">Our account dealing with Exness Forex Trading Company from Jan 10 2024 since we were facing
+        withdrawal issues with our previous broker and that is the reason for the gap in trading.</div>
+    <hr>
+    <div class="container">
+        <h1 class="display-3 text-center">Profits</h1>
+        <hr style="width: 50%;">
+
+        <div class="row">
+            {% if user.is_authenticated %}
+            <div class="col-md-4 offset-md-4" style="background-color: rgb(255, 255, 255); border-radius: 15px; box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;"> <!-- Added offset-md-4 class to center align the column -->
+                <h3>ADD PROFIT</h3>
+                <form id="addProfit" action="" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="number" name="usd" placeholder="USD" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="number" name="inr" placeholder="INR" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="result" placeholder="Result" required>
+                    </div>
+                    <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
+                </form>
+                <br>
+            </div>
+
+            {% endif %}
+            
+            <div class="col-md-12">
+                <br>
+                <hr>
+                <h2 class="text-center">Daily Profits</h2>
+                <br>
+                <div class="p-5" style="border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;">
+                <table id="profitTable" class="table table-striped" style="font-size: larger;" >
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>USD</th>
+                            <th>INR</th>
+                            <!-- <th>USD <span class="sort-icon">&#x25B2;</span></th> Ascending sort icon -->
+                            <!-- <th>INR <span class="sort-icon">&#x25B2;</span></th> Ascending sort icon -->
+                            <th>Result</th>
+                            {% if user.is_authenticated %}
+                            <th colspan="2">Actions</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for profit in profits %}
+                        <tr id="profit-{{ profit.id }}">
+                            <td class="profitDate">{{ profit.date }}</td>
+                            <td class="profitUsd">{{ profit.usd }}</td>
+                            <td class="profitInr">{{ profit.inr }}</td>
+                            <td class="profitResult">{{ profit.result }}</td>
+                            {% if user.is_authenticated %}
+                            <td align="center">
+                                <button class="btn btn-success form-control" onClick="editProfit({{ profit.id }})"
+                                    data-toggle="modal" data-target="#myModal">EDIT</button>
+                            </td>
+                            <td align="center">
+                                <button class="btn btn-danger form-control"
+                                    onClick="deleteProfit({{ profit.id }})">DELETE</button>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <br>
+
+                <!-- <div class="weeklyprofit">
+                    <h2 class="text-center">Weekly Profits</h2>
+                    <table id="weeklyprofitTable" class="table table-striped" style="font-size: larger;">
+                        <thead>
+                            <tr>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>USD</th>
+                                <th>INR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ weekly_profits.start_date }}</td>
+                                <td>{{ weekly_profits.end_date }}</td>
+                                <td>{{ weekly_profits.total_usd }}</td>
+                                <td>{{ weekly_profits.total_inr }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="monthlyprofit">
+                    <h2 class="text-center">Monthly Profits</h2>
+                    <table id="monthlyprofitTable" class="table table-striped" style="font-size: larger;">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>USD</th>
+                                <th>INR</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for profit in monthly_profits %}
+                            <tr>
+                                <td>{{ profit.month }}</td>
+                                <td>{{ profit.total_usd }}</td>
+                                <td>{{ profit.total_inr }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div> -->
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                    <h4 class="modal-title" id="myModalLabel">Update Profit</h4>
+                </div>
+                <form id="updateProfit" action="">
+                    <div class="modal-body">
+                        <input class="form-control" id="profit-id" type="hidden" name="profitId" />
+                        <label for="date">Date</label>
+                        <input class="form-control" id="profit-date" type="date" name="profitDate" />
+                        <label for="usd">USD</label>
+                        <input class="form-control" id="profit-usd" type="number" name="profitUsd" />
+                        <label for="inr">INR</label>
+                        <input class="form-control" id="profit-inr" type="number" name="profitInr" />
+                        <label for="result">Result</label>
+                        <input class="form-control" id="profit-result" type="text" name="profitResult" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function () {
+        $('#profitTable').DataTable({
+            "order": [[1, "asc"]] // Sort by USD column in ascending order initially
+        });
+        $('#weeklyprofitTable').DataTable({
+            "order": [[1, "asc"]] // Sort by USD column in ascending order initially
+        });
+        $('#monthlyprofitTable').DataTable({
+            "order": [[1, "asc"]] // Sort by USD column in ascending order initially
+        });
+    });
+
+
+    $("#addProfit").submit(function (event) {
+        event.preventDefault();  // Prevent default form submission
+
+        var dateInput = $('input[name="date"]').val().trim();
+        var usdInput = $('input[name="usd"]').val().trim();
+        var inrInput = $('input[name="inr"]').val().trim();
+        var resultInput = $('input[name="result"]').val().trim();
+
+        if (dateInput && usdInput && inrInput && resultInput) {
+            // Create Ajax Call
+            $.ajax({
+                url: '{% url "crud_ajax_create" %}',
+                method: 'POST',  // Specify the HTTP method
+                data: {
+                    'date': dateInput,
+                    'usd': usdInput,
+                    'inr': inrInput,
+                    'result': resultInput,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'  // Include CSRF token
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.profit) {
+                        appendToProfitTable(data.profit);  // Call the appropriate function
+                        $('#addProfit')[0].reset();
+                        // Show success message using SweetAlert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: 'Profit entry has been added successfully.',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);  // Log any errors
+                }
+            });
+        } else {
+            alert("All fields must have a valid value.");
+        }
+    });
+
+
+    function appendToProfitTable(profit) {
+        $("#profitTable > tbody").append(`
+        <tr id="profit-${profit.id}">
+            <td class="profitDate">${profit.date}</td>
+            <td class="profitUsd">${profit.usd}</td>
+            <td class="profitInr">${profit.inr}</td>
+            <td class="profitResult">${profit.result}</td>
+            <td align="center">
+                <button class="btn btn-success form-control" onClick="editProfit(${profit.id})" data-toggle="modal" data-target="#myModal">EDIT</button>
+            </td>
+            <td align="center">
+                <button class="btn btn-danger form-control" onClick="deleteProfit(${profit.id})">DELETE</button>
+            </td>
+        </tr>
+    `);
+    }
+
+    // Delete Django Ajax Call
+    // Delete Django Ajax Call
+    function deleteProfit(id) {
+        // Show confirmation dialog using SweetAlert
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Proceed with deletion if user confirms
+                $.ajax({
+                    url: '{% url "crud_ajax_delete" %}',
+                    method: 'POST',
+                    headers: { "X-CSRFToken": csrfToken },
+                    data: {
+                        'id': id,
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.deleted) {
+                            // Remove the row from the table
+                            $("#profitTable #profit-" + id).remove();
+                            // Show success message using SweetAlert
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Deleted!',
+                                text: 'Your profit entry has been deleted.',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            }
+        });
+    }
+
+
+    // Update Django Ajax Call
+    function editProfit(id) {
+        // Fetch the profit data based on the ID and populate the modal fields
+        var profitRow = $("#profit-" + id);
+        var date = profitRow.find(".profitDate").text().trim();
+
+        // Parse the date string into a JavaScript Date object
+        var currentDate = new Date(date);
+
+        // Add one day to the current date
+        currentDate.setDate(currentDate.getDate() + 1);
+
+        // Format the date as YYYY-MM-DD
+        var formattedDate = currentDate.toISOString().split("T")[0];
+
+        // Fetch other profit data
+        var usd = profitRow.find(".profitUsd").text().trim();
+        var inr = profitRow.find(".profitInr").text().trim();
+        var result = profitRow.find(".profitResult").text().trim();
+
+        // Populate modal fields
+        $("#profit-id").val(id);
+        $("#profit-date").val(formattedDate);
+        $("#profit-usd").val(usd);
+        $("#profit-inr").val(inr);
+        $("#profit-result").val(result);
+
+        // Show the modal
+        $("#myModal").modal("show");
+    }
+
+
+    // Update Django Ajax Call
+    $("form#updateProfit").submit(function (event) {
+        event.preventDefault();
+
+        var idInput = $('#profit-id').val().trim();
+        var dateInput = $('#profit-date').val().trim();
+        var usdInput = $('#profit-usd').val().trim();
+        var inrInput = $('#profit-inr').val().trim();
+        var resultInput = $('#profit-result').val().trim();
+
+        if (idInput && dateInput && usdInput && inrInput && resultInput) {
+            $.ajax({
+                url: '{% url "crud_ajax_update" %}',
+                method: 'POST',
+                data: {
+                    'id': idInput,
+                    'date': dateInput,
+                    'usd': usdInput,
+                    'inr': inrInput,
+                    'result': resultInput,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data.profit) {
+                        updateToProfitTable(data.profit);
+                        $('#myModal').modal('hide'); // Hide the modal on success
+                        // Show success message using SweetAlert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: 'Profit updated successfully!',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        } else {
+            alert("All fields must have a valid value.");
+        }
+        return false;
+    });
+
+
+
+</script>
+{% endblock javascript %}
