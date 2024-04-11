@@ -1,25 +1,18 @@
 {
-
-    "builds": [{
-
-        "src": "quat/wsgi.py",
-
-        "use": "@vercel/python",
-
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.11.7" }
-
-    }],
-
-    "routes": [
-
+    "builds": [
         {
-
-            "src": "/(.*)",
-
-            "dest": "quat/wsgi.py"
-
+            "src": "quat/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.11.7"
+            }
         }
-
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "quat/wsgi.py"
+        }
     ]
-
 }
