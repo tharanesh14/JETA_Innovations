@@ -1,5 +1,5 @@
 echo "BUILD START"
-pip3 --version
+# pip3 --version
 # python3.9 pip install Django
 python3.9 pip install -r requirements.txt
 # python3.9 manage.py collectstatic --noinput --clear
