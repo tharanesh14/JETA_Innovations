@@ -1,5 +1,5 @@
 asgiref==3.7.2
-Django==5.0.2
+Django==4.2.9
 django-ajax-datatable==4.5.0
 django-filter==23.5
 djangorestframework==3.14.0
