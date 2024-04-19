@@ -2,61 +2,109 @@
 {% load static %}
 
 {% block content %}
-<!-- Your page content goes here -->
 
-<div style="height: 100vh; background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">
-    <div class="row align-items-center">
-        <div class="col-6 container p-5">
-            <h1 class="display-3" style="color: white;">Welcome</h1> <br>
-            <p class="fs-1" style="color: white;">I am Stephen, Founder of QuatFX.</p>
-            <p class="h3" style="color: white;">First you must study below mentioned all profile details, then join with me and make your money life better choice.</p>
-        </div>
-        <div class="col-6">
-            <span class="faded faded-left"><img src="{% static 'img/vector1.jpg' %}" style="height: 100vh;"/></span>
-        </div>
-    </div>
+
+<div class="firstdiv p-5 " style="height: 100%;">
+  <div class="container align-items-center ">
+    <!-- <div class="card border-0 shadow my-5">
+      <div class="card-body p-5"> -->
+    <h1 class="display-2" style="color: rgb(255, 255, 255);">Why Quat FX?</h1> <br>
+    <h4 class="fs-2" style="color: rgb(255, 255, 255);">Riche Profit opens a new era where trading is not just a
+      secondary income but a sustained as well managed master income to each and everyone without any financial
+      barriers.</h4>
+
+    <!-- </div>
+    </div> -->
+  </div>
 </div>
-<div style="height: 100vh; background-color: rgb(255, 255, 255);">
-    <div class="row align-items-center" >
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-            <!-- Content for the left column goes here -->
-            <span class="faded faded-right"><img src="{% static 'img/img3.jpg' %}" style="height: 100vh; max-width: 100%;"/></span>
+
+<section id="hero" class="d-flex align-items-center p-3" style="background-color: black; height: 100%;">
+
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-lg-6 order-2 order-lg-1 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <img src="/static/img/home1.png" class="img-fluid animated" alt="">
+      </div>
+      <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-1 order-lg-2" data-aos="fade-up"
+        data-aos-delay="200">
+        <h1 class="display-3" style="color: white;">Welcome</h1> <br>
+        <h2 class="fs-1" style="color: white;">I am Stephen, Founder of QuatFX.</h2>
+        <p class="h5" style="color: white;">First you must study below mentioned all profile details, then join with
+          me and make your money life better choice.</p>
+        <div class="d-flex justify-content-center justify-content-lg-start">
+
         </div>
-        <div class="col-md-6 d-flex justify-content-center align-items-center p-5"  style="height: 100vh; background-color: white;">
-            <!-- Content for the right column goes here -->
-            <div class="justify-content-center align-items-center p-5" style="height: 100vh; background-color: white;">
-                <h1 class="display-3" style="color: rgb(0, 0, 0);">Meticulous Array of Premium Facilities</h1> <br>
-                <p class="fs-1" style="color: rgb(0, 0, 0);">Riche Profit is committed to providing its clients with the best possible trading conditions using innovative technology and unbeatable expertise.</p>
-                <p class="h3" style="color: rgb(0, 0, 0);">Minimum Deposit 1000$
-                    Low Risk, High Profit
-                    Monthly returns upto 41%
-                    Only GBP vs USD pair</p>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
+
+</section>
+
+
+<section id="hero" class="d-flex align-items-center p-3" style="height: 100%;">
+
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up"
+        data-aos-delay="200">
+        <h1 class="display-4" style="color: rgb(0, 0, 0);">Meticulous Array of Premium Facilities</h1> <br>
+        <p class="fs-1" style="color: rgb(0, 0, 0);">Riche Profit is committed to providing its clients with the best
+          possible trading conditions using innovative technology and unbeatable expertise.</p>
+        <p class="h3" style="color: rgb(0, 0, 0);">Minimum Deposit 1000$
+          Low Risk, High Profit
+          Monthly returns upto 41%
+          Only GBP vs USD pair</p>
+        <div class="d-flex justify-content-center justify-content-lg-start">
+
+        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img justify-content-center" data-aos="zoom-in" data-aos-delay="200">
+        <img src="/static/img/png2.png" class="img-fluid animated" alt="" style="width: 80%;">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- <div class="background-div justify-content-center align-items-center">
+    <h1 class="display-1" style="color: white; font-weight: 800;">
+        All things finance, <br> right here.
+    </h1>
+    <h2 class="display-2" style="color: white; font-weight: 700;">
+        Join with us
+    </h2>
+</div> -->
+
+
 
 
 
 
 <style>
-    .faded-left::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%; /* Adjust the width of the fade */
-        height: 100%;
-        background: linear-gradient(to right, rgba(0, 0, 0), transparent); /* Adjust the gradient direction and opacity */
-    }
-    .faded-right::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%; /* Adjust the width of the fade */
-        height: 100%;
-        background: linear-gradient(to left, rgba(255, 255, 255), transparent); /* Adjust the gradient direction and opacity */
-    }
+  .faded-left::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Adjust the width of the fade */
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0), transparent);
+    /* Adjust the gradient direction and opacity */
+  }
+
+  .faded-right::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    /* Adjust the width of the fade */
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255), transparent);
+    /* Adjust the gradient direction and opacity */
+  }
 </style>
 {% endblock %}

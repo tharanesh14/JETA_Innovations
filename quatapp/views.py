@@ -37,6 +37,7 @@ def login(request):
 
 def logout(request):
     auth_logout(request)
+    print("logout")
     return redirect('home')
 
 def register(request):
