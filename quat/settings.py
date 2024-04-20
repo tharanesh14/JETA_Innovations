@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%cx*9et(yoy_^s3$u)vw&6%e&zreh@z%leu2p$y_$*^##n0smd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app","8000","*","192.168.1.7"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -93,12 +93,12 @@ WSGI_APPLICATION = 'quat.wsgi.application'
 
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'railway',
-    'USER': 'postgres',
-    'PASSWORD': 'cJsSfMMEmNswBUUEsVjoGUwdBqFlRisT',
-    'HOST': 'viaduct.proxy.rlwy.net',
-    'PORT': '25872',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'cJsSfMMEmNswBUUEsVjoGUwdBqFlRisT',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '25872',
     }
 }
 
