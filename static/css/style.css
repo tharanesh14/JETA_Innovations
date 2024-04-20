@@ -3492,6 +3492,7 @@ input[type="button"].btn-block {
 
 .navbar-collapse {
   -ms-flex-preferred-size: 100%;
+  background-color: black;
   flex-basis: 100%;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -3549,6 +3550,7 @@ input[type="button"].btn-block {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-sm .navbar-collapse {
+      background-color: #000;
       display: -webkit-box !important;
       display: -ms-flexbox !important;
       display: flex !important;
@@ -3587,6 +3589,7 @@ input[type="button"].btn-block {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-md .navbar-collapse {
+      background-color: #000;
       display: -webkit-box !important;
       display: -ms-flexbox !important;
       display: flex !important;
@@ -3625,6 +3628,7 @@ input[type="button"].btn-block {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-lg .navbar-collapse {
+      background-color: #000;
       display: -webkit-box !important;
       display: -ms-flexbox !important;
       display: flex !important;
@@ -3663,6 +3667,7 @@ input[type="button"].btn-block {
       -ms-flex-wrap: nowrap;
       flex-wrap: nowrap; }
     .navbar-expand-xl .navbar-collapse {
+      background-color: #000;
       display: -webkit-box !important;
       display: -ms-flexbox !important;
       display: flex !important;
@@ -3698,6 +3703,7 @@ input[type="button"].btn-block {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap; }
   .navbar-expand .navbar-collapse {
+    background-color: #000;
     display: -webkit-box !important;
     display: -ms-flexbox !important;
     display: flex !important;
