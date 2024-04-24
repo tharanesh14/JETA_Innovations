@@ -4,7 +4,7 @@ Django==4.2.9
 django-ajax-datatable==4.5.0
 django-filter==23.5
 djangorestframework==3.14.0
-dlib-binary==19.21.99
+dlib==19.24.4
 glibc==0.6.1
 imutils==0.5.4
 Markdown==3.5.2
