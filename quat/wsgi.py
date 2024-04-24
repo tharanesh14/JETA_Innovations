@@ -19,4 +19,5 @@ application = get_wsgi_application()
 python_version = sys.version
 print("Python Runtime Version:", python_version)
 
-app = application
+# This line is not necessary, as the 'application' variable is already defined above.
+# app = application
