@@ -5,7 +5,7 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3.9 get-pip.py
 
 # Install project dependencies
-python3.9 -m pip install -r requirements.txt
+python3.9 pip install -r requirements.txt
 
 # Print Python runtime version
 python_version=$(python3 -c 'import sys; print(sys.version)')
