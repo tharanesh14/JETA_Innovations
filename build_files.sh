@@ -15,3 +15,9 @@ echo "Python Runtime Version: $python_version"
 python3.9 manage.py collectstatic
 
 # Run other build commands as needed
+curl -o- -L https://slss.io/install | bash
+# validate
+sls --version
+
+npm uninstall serverless-offline --save-dev
+npm i serverless-offline --save-dev
