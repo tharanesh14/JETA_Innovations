@@ -5,7 +5,7 @@ echo "Building the project..."
 # python3.9 get-pip.py
 
 # Install project dependencies
-python pip install -r requirements.txt
+pip install -r requirements.txt
 
 # Print Python runtime version
 # python_version=$(python3 -c 'import sys; print(sys.version)')
