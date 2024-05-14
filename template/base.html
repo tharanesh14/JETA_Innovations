@@ -32,8 +32,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- Favicons -->
-  <link href="/static/img/quat Transparent.png" rel="icon">
-  <link href="/static/img/quat Transparent.png" rel="apple-touch-icon">
+  <link href="{% static 'img/logo.png'%}" rel="icon">
+  <link href="{% static 'img/logo.png'%}" rel="apple-touch-icon">
     <style>
         /* Custom CSS for active navbar color */
         .navbar {
@@ -309,7 +309,8 @@
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-BLACK justify-content-center">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Quat Fx</a>
+            <img src="{% static 'img/logo.png' %}" style="width: 10%;">
+            <!-- <a class="navbar-brand" href="{% url 'home' %}">Quat Fx</a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -362,14 +363,15 @@
             <div class="row">
     
               <div class="col-lg-3 col-md-6 footer-contact">
-                <h3>Quat FX</h3>
-                <p>
+                <!-- <h3>Quat FX</h3> -->
+                <img src="{% static 'img/logo.png' %}" style="width: 70%;">
+                <!-- <p>
                   A108 Adam Street <br>
                   New York, NY 535022<br>
                   United States <br><br>
                   <strong>Phone:</strong> +1 5589 55488 55<br>
                   <strong>Email:</strong> info@example.com<br>
-                </p>
+                </p> -->
               </div>
     
               <div class="col-lg-3 col-md-6 footer-links">
@@ -394,15 +396,14 @@
               </div>
     
               <div class="col-lg-3 col-md-6 footer-links">
-                <h4>Our Social Networks</h4>
-                <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-                <div class="social-links mt-3">
-                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                  <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                  <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                  <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                  <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                </div>
+                <h4>Contact</h4>
+                <p style="color: white;">
+                  A108 Adam Street <br>
+                  New York, NY 535022<br>
+                  United States <br><br>
+                  <strong>Phone:</strong> +1 5589 55488 55<br>
+                  <strong>Email:</strong> info@example.com<br>
+                </p>
               </div>
     
             </div>

@@ -20,4 +20,4 @@ python_version = sys.version
 print("Python Runtime Version:", python_version)
 
 # This line is not necessary, as the 'application' variable is already defined above.
-# app = application
+app = application
